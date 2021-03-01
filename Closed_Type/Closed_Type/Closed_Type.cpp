@@ -23,19 +23,6 @@ consum_points(consumption_points) {
 
 void Closed_Type::ProductMore(int div, Matrix* table) {
 	consum_points.push_back(div);
-	data = Matrix(table->get_n() + 1, table->get_m());
-	for (size_t i = 0; i < table->get_n(); i++) {
-		for (size_t j = 0; j < table->get_m(); j++) {
-			data[i][j] = (*table)[i][j];
-		}
-	}
-	for (size_t i = 0; i < table->get_m(); i++) {
-		data[table->get_n()][i] = 0;
-	}
-}
-
-void Closed_Type::ConsumMore(int div, Matrix* table) {
-	product_points.push_back(div);
 	data = Matrix(table->get_n(), table->get_m() + 1);
 	for (size_t i = 0; i < table->get_n(); i++) {
 		for (size_t j = 0; j < table->get_m(); j++) {
@@ -44,6 +31,19 @@ void Closed_Type::ConsumMore(int div, Matrix* table) {
 	}
 	for (size_t i = 0; i < table->get_n(); i++) {
 		data[i][table->get_m()] = 0;
+	}
+}
+
+void Closed_Type::ConsumMore(int div, Matrix* table) {
+	product_points.push_back(div);
+	data = Matrix(table->get_n() + 1, table->get_m());
+	for (size_t i = 0; i < table->get_n(); i++) {
+		for (size_t j = 0; j < table->get_m(); j++) {
+			data[i][j] = (*table)[i][j];
+		}
+	}
+	for (size_t i = 0; i < table->get_m(); i++) {
+		data[table->get_n()][i] = 0;
 	}
 }
 

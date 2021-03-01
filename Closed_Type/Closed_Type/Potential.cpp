@@ -5,12 +5,6 @@ Potential::Potential(PotentialParams const& pp)
 	consumption_points{ pp.consumption_points },
 	table{ pp.table } {
 
-	Closed_Type* cl_t = new Closed_Type(production_points, consumption_points, &table);
-
-	production_points = cl_t->Production_Points();
-	consumption_points = cl_t->Consumption_Points();
-	table = cl_t->New_Table();
-
 	std::cout << "production_points:\n";
 	for (auto elem : production_points) {
 		std::cout << elem << ' ';
@@ -105,7 +99,7 @@ bool Potential::is_optimal_plan(size_t& i_, size_t& j_) const {
 		else {
 			for (auto const& pair : potential_pairs) {
 				if (!defined_prod_points[pair.second] && pair.first == cur_var.second) {
-					defined_cons_points[pair.second] = true;
+					defined_prod_points[pair.second] = true;
 					u[pair.second] = v[pair.first] - table[pair.second][pair.first];
 					queue.push({ true, pair.second });
 				}

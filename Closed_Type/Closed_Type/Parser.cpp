@@ -64,6 +64,12 @@ Potential* Parser::parse() {
 
 	PotentialParams pp{ production_points, consumption_points, table };
 
+	Closed_Type* cl_t = new Closed_Type(pp.production_points, pp.consumption_points, &(pp.table));
+
+	pp.production_points = cl_t->Production_Points();
+	pp.consumption_points = cl_t->Consumption_Points();
+	pp.table = cl_t->New_Table();
+
 	return new Potential(pp);
 }
 
