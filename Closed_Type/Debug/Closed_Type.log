@@ -1,0 +1,4 @@
+﻿  Closed_Type.cpp
+C:\Users\Олег\source\Repos\Closed_Type\Closed_Type\Closed_Type.cpp(7,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Олег\source\Repos\Closed_Type\Closed_Type\Closed_Type.cpp(10,20): warning C4018: <: несоответствие типов со знаком и без знака
+  Closed_Type.vcxproj -> C:\Users\Олег\source\Repos\Closed_Type\Debug\Closed_Type.exe
